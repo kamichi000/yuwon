@@ -141,143 +141,111 @@ document.addEventListener("keydown", (e) => {
 
 const calendarTitle = document.getElementById("calendarTitle");
 const calendarBody = document.getElementById("calendarBody");
-
 const scheduleContent = document.getElementById("scheduleContent");
 
-let currentDate = new Date(2001, 3, 1);
+let currentDate = new Date(2001, 6, 1);
 
-const schedules={
+/* 일정 */
 
-"2001-7-7":{
-title:"칠석 제례 준비",
-time:"午後 六時",
-place:"본전",
-type:"제례",
-desc:"칠석 제례를 위한 준비가 진행됩니다."
-},
+const schedules = {
 
-"2001-7-13":{
-title:"무녀 의식",
-time:"午後 八時",
-place:"신전",
-type:"의식",
-desc:"신을 맞이하기 위한 의식이 거행됩니다."
-},
+    "2001-7-7":{
+        title:"🌫 칠석 제례 준비",
+        desc:"제사를 준비하기 위해 마을 전체가 정화 의식을 진행합니다."
+    },
 
-"2001-7-21":{
-title:"신사 청소",
-time:"午前 九時",
-place:"경내",
-type:"관리",
-desc:"신사 경내를 정화합니다."
-},
+    "2001-7-13":{
+        title:"🎐 무녀 의식",
+        desc:"신사에서 무녀의 봉납 의식이 거행됩니다."
+    },
 
-"2001-7-28":{
-title:"안개 관측",
-time:"午後 七時",
-place:"후원",
-type:"기록",
-desc:"안개의 흐름을 기록합니다."
-}
+    "2001-7-21":{
+        title:"⛩ 신사 청소",
+        desc:"주민들이 모두 모여 신사를 정비합니다."
+    },
+
+    "2001-7-28":{
+        title:"🌧 안개 관측",
+        desc:"짙은 안개가 예상되어 외출을 삼가야 합니다."
+    }
 
 };
 
-function renderCalendar() {
-  calendarBody.innerHTML = "";
+function renderCalendar(){
 
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
+    calendarBody.innerHTML="";
 
-  calendarTitle.textContent = `${year}年 ${month + 1}月`;
+    const year=currentDate.getFullYear();
+    const month=currentDate.getMonth();
 
-  const firstDay = new Date(year, month, 1).getDay();
+    calendarTitle.textContent=`${year}年 ${month+1}月`;
 
-  const lastDate = new Date(year, month + 1, 0).getDate();
+    const firstDay=new Date(year,month,1).getDay();
+    const lastDate=new Date(year,month+1,0).getDate();
 
-  let row = document.createElement("tr");
+    let row=document.createElement("tr");
 
-  for (let i = 0; i < firstDay; i++) {
-    row.appendChild(document.createElement("td"));
-  }
+    for(let i=0;i<firstDay;i++){
 
-  for (let day = 1; day <= lastDate; day++) {
-    const td = document.createElement("td");
+        row.appendChild(document.createElement("td"));
 
-    td.textContent = day;
-
-    const key = `${year}-${month + 1}-${day}`;
-
-    if (schedules[key]) {
-      td.classList.add("has-event");
     }
 
-    const today = new Date();
+    for(let day=1;day<=lastDate;day++){
 
-    if (
-      today.getFullYear() === year &&
-      today.getMonth() === month &&
-      today.getDate() === day
-    ) {
-      td.classList.add("today");
-    }
+        const td=document.createElement("td");
 
-    td.addEventListener("click", () => {
+        td.textContent=day;
 
-    const event = schedules[key];
+        const key=`${year}-${month+1}-${day}`;
 
-    if(event){
+        if(schedules[key]){
+
+            td.classList.add("has-event");
+
+        }
 
         td.addEventListener("click",()=>{
 
-const event=schedules[key];
+            const event=schedules[key];
 
-if(!event){
+            if(event){
 
-scheduleContent.innerHTML=`
-<div class="event-empty">
-등록된 일정이 없습니다.
-</div>
-`;
+                scheduleContent.innerHTML=`
+                    <h4>${event.title}</h4>
+                    <p>${event.desc}</p>
+                `;
 
-return;
+            }else{
 
-}
+                scheduleContent.innerHTML=`
+                    <h4>일정 없음</h4>
+                    <p>등록된 일정이 없습니다.</p>
+                `;
 
-scheduleContent.innerHTML=`
+            }
 
-<div class="event-card">
+        });
 
-<h4>${event.title}</h4>
+        row.appendChild(td);
 
-<p><strong>종류</strong> ${event.type}</p>
+        if((firstDay+day)%7===0){
 
-<p><strong>시간</strong> ${event.time}</p>
+            calendarBody.appendChild(row);
+            row=document.createElement("tr");
 
-<p><strong>장소</strong> ${event.place}</p>
+        }
 
-<p>${event.desc}</p>
-
-</div>
-
-`;
-
-});
-    row.appendChild(td);
-
-    if ((firstDay + day) % 7 === 0) {
-      calendarBody.appendChild(row);
-
-      row = document.createElement("tr");
     }
-  }
 
-  if (row.children.length) {
-    while (row.children.length < 7) {
-      row.appendChild(document.createElement("td"));
+    while(row.children.length<7){
+
+        row.appendChild(document.createElement("td"));
+
     }
 
     calendarBody.appendChild(row);
-  }
+
 }
 
 renderCalendar();
