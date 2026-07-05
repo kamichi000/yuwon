@@ -2933,3 +2933,87 @@ color:#bdb480;
     }
 
 }
+
+/* ======================================================
+   Character Archive
+====================================================== */
+
+.profile-header{
+
+text-align:center;
+
+}
+
+.profile-header h2{
+
+font-size:2rem;
+
+font-weight:400;
+
+letter-spacing:4px;
+
+margin-bottom:8px;
+
+color:var(--gold);
+
+}
+
+.profile-jp{
+
+color:var(--olive-light);
+
+letter-spacing:5px;
+
+font-size:.9rem;
+
+}
+
+.profile-divider{
+
+width:100%;
+
+height:1px;
+
+background:rgba(116,128,97,.25);
+
+margin:24px 0;
+
+}
+
+.profile-quote{
+
+text-align:center;
+
+font-style:italic;
+
+line-height:2;
+
+color:var(--gold);
+
+}
+
+.profile-section{
+
+margin-top:30px;
+
+}
+
+.profile-section h3{
+
+margin-bottom:15px;
+
+font-weight:400;
+
+letter-spacing:4px;
+
+color:var(--gold);
+
+}
+
+.profile-section p{
+
+line-height:2.2;
+
+white-space:normal;
+
+}
