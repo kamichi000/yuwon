@@ -2493,3 +2493,23 @@ body::after{
     color:var(--text);
 
 }
+
+#scheduleContent h4{
+
+    color:var(--olive-light);
+
+    margin-bottom:12px;
+
+    font-size:1.15rem;
+
+    font-weight:500;
+
+}
+
+#scheduleContent p{
+
+    color:var(--sub);
+
+    line-height:2;
+
+}
