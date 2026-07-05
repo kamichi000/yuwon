@@ -1,1 +1,2495 @@
+/* ======================================================
+   遊園 | Chapter I : 桃源鄕
+====================================================== */
 
+:root{
+
+    --bg:#070707;
+    --bg2:#111111;
+
+    /* 遊園 Main Color */
+
+    --olive:#59644B;
+    --olive-light:#748061;
+    --olive-dark:#414A37;
+    --olive-mist:#88957A;
+
+    /* Text */
+
+    --text:#E8E9E2;
+    --sub:#A6A99D;
+
+    /* Border */
+
+    --line:rgba(255,255,255,.08);
+
+}
+
+/* ====================================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top,
+    #1a1a1a,
+    #090909 55%,
+    #050505);
+
+    color:var(--text);
+
+    font-family:'Noto Serif KR',serif;
+
+    overflow-x:hidden;
+
+    line-height:1.9;
+
+}
+
+/* ====================================================== */
+/* Scrollbar */
+/* ====================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#090909;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--olive);
+
+    border-radius:30px;
+
+}
+
+/* ====================================================== */
+/* HERO */
+/* ====================================================== */
+
+#hero{
+
+    position:relative;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+}
+
+/* ====================================================== */
+/* Shrine Shadow */
+/* PNG 없이 CSS만 */
+/* ====================================================== */
+
+#hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+        rgba(0,0,0,.35),
+        rgba(0,0,0,.82)
+        ),
+
+        radial-gradient(
+        circle at bottom,
+        rgba(89,100,75,.20),
+        transparent 65%
+        );
+
+    z-index:-20;
+
+}
+
+/* ====================================================== */
+/* 안개 */
+/* ====================================================== */
+
+.fog{
+
+    position:absolute;
+
+    inset:-20%;
+
+    pointer-events:none;
+
+    filter:blur(60px);
+
+    opacity:.18;
+
+    background:
+
+    radial-gradient(circle at 15% 30%,
+    rgba(255,255,255,.08),
+    transparent 25%),
+
+    radial-gradient(circle at 75% 35%,
+    rgba(255,255,255,.06),
+    transparent 30%),
+
+    radial-gradient(circle at 40% 80%,
+    rgba(255,255,255,.07),
+    transparent 28%),
+
+    radial-gradient(circle at 85% 75%,
+    rgba(255,255,255,.05),
+    transparent 30%);
+
+}
+
+.fog1{
+
+    animation:fogMove1 80s linear infinite;
+
+}
+
+.fog2{
+
+    animation:fogMove2 110s linear infinite;
+
+    opacity:.12;
+
+}
+
+@keyframes fogMove1{
+
+    from{
+
+        transform:translateX(-5%) translateY(0);
+
+    }
+
+    to{
+
+        transform:translateX(5%) translateY(3%);
+
+    }
+
+}
+
+@keyframes fogMove2{
+
+    from{
+
+        transform:translateX(5%) translateY(-2%);
+
+    }
+
+    to{
+
+        transform:translateX(-5%) translateY(2%);
+
+    }
+
+}
+/* ====================================================== */
+/* Hero Text */
+/* ====================================================== */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    animation:fadeHero 2.2s ease;
+
+}
+
+.hero-small{
+
+    color:var(--olive-light);
+
+    letter-spacing:10px;
+
+    font-size:.8rem;
+
+    margin-bottom:20px;
+
+    text-transform:uppercase;
+
+}
+
+.hero-title{
+
+    font-size:clamp(70px,9vw,130px);
+
+    font-weight:300;
+
+    letter-spacing:14px;
+
+    color:var(--text);
+
+    text-shadow:
+
+        0 0 15px rgba(255,255,255,.05),
+
+        0 0 40px rgba(89,100,75,.15);
+
+}
+
+.hero-sub{
+
+    margin-top:18px;
+
+    letter-spacing:6px;
+
+    color:var(--sub);
+
+    font-size:.95rem;
+
+}
+
+.hero-chapter{
+
+    margin-top:10px;
+
+    font-size:clamp(28px,4vw,48px);
+
+    color:var(--gold);
+
+    font-weight:400;
+
+    letter-spacing:8px;
+
+}
+
+.hero-line{
+
+    width:120px;
+
+    height:1px;
+
+    background:linear-gradient(
+        transparent,
+        var(--gold),
+        transparent
+    );
+
+    margin:40px 0;
+
+}
+
+.hero-text{
+
+    color:var(--sub);
+
+    line-height:2.1;
+
+    font-size:1rem;
+
+    margin-bottom:45px;
+
+}
+
+/* ====================================================== */
+/* ENTER Button */
+/* ====================================================== */
+
+.enter-button{
+
+    padding:
+
+        14px 52px;
+
+    border:
+
+        1px solid rgba(185,154,97,.45);
+
+    color:var(--gold);
+
+    text-decoration:none;
+
+    letter-spacing:6px;
+
+    transition:.45s;
+
+    backdrop-filter:blur(8px);
+
+    background:rgba(255,255,255,.02);
+
+}
+
+.enter-button:hover{
+
+    background:rgba(185,154,97,.12);
+
+    box-shadow:
+
+        0 0 20px rgba(185,154,97,.22);
+
+    transform:translateY(-4px);
+
+}
+
+/* ====================================================== */
+/* Hero Fade */
+/* ====================================================== */
+
+@keyframes fadeHero{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+/* ====================================================== */
+/* Navigation */
+/* ====================================================== */
+
+#navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:200;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:70px;
+
+    padding:18px;
+
+    background:rgba(10,10,10,.72);
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+}
+
+#navbar a{
+
+    color:var(--sub);
+
+    text-decoration:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    transition:.35s;
+
+}
+
+#navbar .jp{
+
+    font-size:1.05rem;
+
+    color:var(--gold);
+
+}
+
+#navbar .en{
+
+    font-size:.72rem;
+
+    letter-spacing:3px;
+
+    margin-top:6px;
+
+}
+
+#navbar a:hover{
+
+    color:white;
+
+    transform:translateY(-3px);
+
+}
+/* ====================================================== */
+/* Section */
+/* ====================================================== */
+
+section{
+
+    width:min(1200px,92%);
+
+    margin:180px auto;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-title p{
+
+    color:var(--gold);
+
+    letter-spacing:8px;
+
+    margin-bottom:12px;
+
+    font-size:.9rem;
+
+}
+
+.section-title h2{
+
+    font-size:2.4rem;
+
+    font-weight:300;
+
+    letter-spacing:6px;
+
+}
+
+.section-description{
+
+    max-width:760px;
+
+    margin:0 auto 70px;
+
+    text-align:center;
+
+    color:var(--sub);
+
+}
+
+/* ====================================================== */
+/* Characters */
+/* ====================================================== */
+
+.character-layout{
+
+    display:grid;
+
+    grid-template-columns:repeat(4, minmax(220px,1fr));
+
+    grid-template-areas:
+
+        ". sone sone ."
+
+        "sao . soushi ."
+
+        ". shinon . shizuma";
+
+    column-gap:80px;
+
+    row-gap:70px;
+
+    justify-content:center;
+
+    justify-items:center;
+
+    align-items:start;
+
+    max-width:1100px;
+
+    margin:70px auto 0;
+
+}
+
+.character-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+/* 배치 */
+
+.sone{
+
+    grid-area:sone;
+
+}
+
+.sao{
+
+    grid-area:sao;
+
+}
+
+.soushi{
+
+    grid-area:soushi;
+
+}
+
+.shinon{
+
+    grid-area:shinon;
+
+}
+
+.shizuma{
+
+    grid-area:shizuma;
+
+}
+
+/* 카드 */
+
+.character-card{
+
+    width:240px;
+
+    position:relative;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+
+    cursor:pointer;
+
+    text-align:center;
+
+}
+
+.character-card:hover{
+
+    transform:translateY(-10px);
+
+    filter:drop-shadow(0 14px 26px rgba(89,100,75,.18));
+
+}
+
+/* 이미지 */
+
+.character-image{
+
+    position:relative;
+
+    width:220px;
+
+    height:220px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    border:1px solid rgba(116,128,97,.20);
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.05),
+
+            rgba(255,255,255,.015)
+
+        );
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.05),
+
+        0 18px 35px rgba(0,0,0,.28);
+
+    transition:
+
+        transform .45s,
+
+        border-color .45s,
+
+        box-shadow .45s;
+
+}
+
+.character-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            circle at top,
+
+            rgba(255,255,255,.08),
+
+            transparent 60%
+
+        );
+
+    opacity:.55;
+
+    pointer-events:none;
+
+}
+
+.character-card:hover .character-image{
+
+    border-color:rgba(116,128,97,.45);
+
+    box-shadow:
+
+        0 0 18px rgba(116,128,97,.15),
+
+        0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.character-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.character-card:hover img{
+
+    transform:scale(1.03);
+
+}
+
+/* 이름 */
+
+.character-card h3{
+
+    margin-top:20px;
+
+    font-size:1.2rem;
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+    color:var(--text);
+
+}
+
+.character-card:hover .character-image{
+
+    border-color:rgba(116,128,97,.45);
+
+    box-shadow:
+
+        0 0 18px rgba(116,128,97,.15),
+
+        0 20px 40px rgba(0,0,0,.35);
+
+}
+
+}
+
+.character-card p{
+
+    margin-top:8px;
+
+    color:var(--olive-light);
+
+    letter-spacing:5px;
+
+    font-size:.82rem;
+
+}
+/* ====================================================== */
+/* Character Hover Effect */
+/* ====================================================== */
+
+.effect{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+.character-card:hover .effect{
+
+    opacity:1;
+
+}
+
+/* ====================================================== */
+/* SAO - 안개 */
+/* ====================================================== */
+
+.sao .effect{
+
+    background:
+
+        radial-gradient(circle at 30% 40%,
+        rgba(255,255,255,.18),
+        transparent 35%),
+
+        radial-gradient(circle at 70% 70%,
+        rgba(255,255,255,.14),
+        transparent 40%);
+
+    filter:blur(18px);
+
+    animation:saoFog 6s linear infinite;
+
+}
+
+@keyframes saoFog{
+
+    from{
+
+        transform:translateX(-8px);
+
+    }
+
+    to{
+
+        transform:translateX(10px);
+
+    }
+
+}
+
+/* ====================================================== */
+/* SOUSHI - 비 */
+/* ====================================================== */
+
+.soushi .effect{
+
+    background:
+
+    repeating-linear-gradient(
+
+        -18deg,
+
+        transparent 0px,
+
+        transparent 14px,
+
+        rgba(180,200,220,.16) 15px,
+
+        transparent 17px
+
+    );
+
+    animation:rainMove .9s linear infinite;
+
+}
+
+@keyframes rainMove{
+
+    from{
+
+        background-position:0 0;
+
+    }
+
+    to{
+
+        background-position:-20px 120px;
+
+    }
+
+}
+
+/* ======================================================
+   SONE - SHIDE (Ultimate)
+====================================================== */
+
+.sone .effect{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+/* 공통 */
+
+.sone .shide{
+
+    position:absolute;
+
+    top:12px;
+
+    width:2px;
+
+    height:44px;
+
+    background:rgba(230,225,214,.45);
+
+    transform-origin:top center;
+
+}
+
+/* 종이 */
+
+.sone .shide::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:42px;
+
+    left:-8px;
+
+    width:16px;
+
+    height:28px;
+
+    background:#f3efe7;
+
+    clip-path:polygon(
+
+        50% 0%,
+
+        100% 18%,
+
+        65% 36%,
+
+        100% 56%,
+
+        62% 76%,
+
+        100% 100%,
+
+        0% 100%,
+
+        38% 76%,
+
+        0% 56%,
+
+        35% 36%,
+
+        0% 18%
+
+    );
+
+    box-shadow:
+
+        inset 0 0 1px rgba(255,255,255,.8),
+
+        0 0 6px rgba(255,255,255,.08);
+
+}
+/* 왼쪽 */
+
+.shide1{
+
+    right:34px;
+
+    animation:shideOne 4.8s ease-in-out infinite;
+
+}
+
+/* 가운데 */
+
+.shide2{
+
+    right:24px;
+
+    animation:shideTwo 5.4s ease-in-out infinite;
+
+}
+
+/* 오른쪽 */
+
+.shide3{
+
+    right:14px;
+
+    animation:shideThree 5s ease-in-out infinite;
+
+}
+@keyframes shideOne{
+
+    0%,100%{
+
+        transform:rotate(-5deg);
+
+    }
+
+    50%{
+
+        transform:rotate(3deg);
+
+    }
+
+}
+
+@keyframes shideTwo{
+
+    0%,100%{
+
+        transform:rotate(2deg);
+
+    }
+
+    50%{
+
+        transform:rotate(-4deg);
+
+    }
+
+}
+
+@keyframes shideThree{
+
+    0%,100%{
+
+        transform:rotate(-2deg);
+
+    }
+
+    50%{
+
+        transform:rotate(5deg);
+
+    }
+
+}
+.sone:hover .shide1{
+
+    animation-duration:2.8s;
+
+}
+
+.sone:hover .shide2{
+
+    animation-duration:3.2s;
+
+}
+
+.sone:hover .shide3{
+
+    animation-duration:3s;
+
+}
+/* ====================================================== */
+/* SHINON - 종이학 */
+/* ====================================================== */
+
+.shinon .effect::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:16px;
+    height:16px;
+
+    left:50%;
+    top:58%;
+
+    background:rgba(255,255,255,.92);
+
+    clip-path:polygon(
+        50% 0%,
+        100% 45%,
+        65% 50%,
+        100% 100%,
+        50% 70%,
+        0% 100%,
+        35% 50%,
+        0% 45%
+    );
+
+    opacity:.85;
+
+    animation:craneFly 5s ease-in-out infinite;
+
+}
+
+@keyframes craneFly{
+
+    0%{
+
+        transform:
+        translate(-50%,0)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+    25%{
+
+        opacity:.9;
+
+    }
+
+    50%{
+
+        transform:
+        translate(-20px,-35px)
+        rotate(-12deg);
+
+    }
+
+    100%{
+
+        transform:
+        translate(35px,-70px)
+        rotate(15deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* ====================================================== */
+/* SHIZUMA - 바람 */
+/* ====================================================== */
+
+.shizuma .effect{
+
+    overflow:hidden;
+
+}
+
+.shizuma .effect::before,
+
+.shizuma .effect::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:2px;
+
+    background:
+
+    linear-gradient(
+
+        transparent,
+
+        rgba(188,163,109,.65),
+
+        transparent
+
+    );
+
+    border-radius:50%;
+
+}
+
+.shizuma .effect::before{
+
+    top:40%;
+
+    left:-140px;
+
+    animation:windOne 2.8s linear infinite;
+
+}
+
+.shizuma .effect::after{
+
+    top:62%;
+
+    left:-180px;
+
+    animation:windTwo 3.6s linear infinite;
+
+}
+
+@keyframes windOne{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(420px);
+
+    }
+
+}
+
+@keyframes windTwo{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(500px);
+
+    }
+
+}
+
+/* ====================================================== */
+/* Hover Border */
+/* ====================================================== */
+
+.character-card:hover .character-image{
+
+    border-color:rgba(188,163,109,.45);
+
+    box-shadow:
+
+        0 0 35px rgba(188,163,109,.15),
+
+        inset 0 0 20px rgba(255,255,255,.03);
+
+}
+/* ====================================================== */
+/* WORLD */
+/* ====================================================== */
+
+.world-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:140px;
+
+}
+
+.world-block{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.world-block.reverse{
+
+    direction:rtl;
+
+}
+
+.world-block.reverse>*{
+
+    direction:ltr;
+
+}
+
+/* ------------------------------------------------------ */
+/* 이미지 */
+/* ------------------------------------------------------ */
+
+.world-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.02);
+
+    min-height:420px;
+
+}
+
+/* 이미지가 없어도 분위기 유지 */
+
+.world-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(circle at top,
+        rgba(89,100,75,.18),
+        transparent 60%),
+
+        linear-gradient(
+        rgba(255,255,255,.03),
+        rgba(0,0,0,.25)
+        );
+
+}
+
+.world-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.72;
+
+    transition:.6s;
+
+}
+
+.world-block:hover img{
+
+    transform:scale(1.05);
+
+    opacity:.92;
+
+}
+
+/* ------------------------------------------------------ */
+/* 글 */
+/* ------------------------------------------------------ */
+
+.world-text{
+
+    position:relative;
+
+}
+
+.world-text h3{
+
+    color:var(--gold);
+
+    font-size:2rem;
+
+    font-weight:400;
+
+    letter-spacing:6px;
+
+    margin-bottom:28px;
+
+}
+
+.world-text p{
+
+    color:var(--sub);
+
+    margin-bottom:22px;
+
+    line-height:2.2;
+
+}
+
+.world-text strong{
+
+    color:var(--text);
+
+    font-weight:500;
+
+}
+
+.world-text blockquote{
+
+    margin-top:30px;
+
+    padding-left:22px;
+
+    border-left:2px solid var(--gold);
+
+    color:var(--gold);
+
+    letter-spacing:3px;
+
+    font-style:italic;
+
+}
+
+/* ------------------------------------------------------ */
+/* 등장 애니메이션 */
+/* ------------------------------------------------------ */
+
+.world-block{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    animation:worldFade .9s ease forwards;
+
+}
+
+.world-block:nth-child(2){
+
+    animation-delay:.25s;
+
+}
+
+.world-block:nth-child(3){
+
+    animation-delay:.5s;
+
+}
+
+@keyframes worldFade{
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+/* ====================================================== */
+/* EVENT SCHEDULE */
+/* ====================================================== */
+
+.calendar-wrapper{
+
+    margin:70px auto 50px;
+
+    max-width:950px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.025);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:18px;
+
+}
+
+.calendar-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.calendar-header h3{
+
+    font-weight:400;
+
+    color:var(--gold);
+
+    letter-spacing:5px;
+
+    font-size:1.4rem;
+
+}
+
+.calendar-btn{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.04);
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.calendar-btn:hover{
+
+    background:rgba(188,163,109,.18);
+
+    transform:scale(1.08);
+
+}
+
+.calendar{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.calendar th{
+
+    padding:16px;
+
+    color:var(--gold);
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.calendar td{
+
+    width:14.2%;
+
+    height:78px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    color:var(--sub);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.calendar td:hover{
+
+    background:rgba(89,100,75,.18);
+
+    color:var(--text);
+
+}
+
+/* 일정 있는 날짜 */
+
+.calendar td.has-event::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+}
+
+/* 오늘 */
+
+.calendar td.today{
+
+    outline:1px solid rgba(188,163,109,.55);
+
+    outline-offset:-5px;
+
+}
+
+/* ====================================================== */
+/* Schedule Detail */
+/* ====================================================== */
+
+.schedule-info{
+
+    max-width:900px;
+
+    margin:50px auto 0;
+
+    padding:35px;
+
+    border-left:2px solid var(--gold);
+
+    background:rgba(255,255,255,.02);
+
+}
+
+.schedule-info h3{
+
+    color:var(--gold);
+
+    margin-bottom:20px;
+
+    font-weight:400;
+
+    letter-spacing:4px;
+
+}
+
+#scheduleContent{
+
+    color:var(--sub);
+
+    line-height:2.1;
+
+    min-height:90px;
+
+}
+/* ====================================================== */
+/* MUSIC BUTTON */
+/* ====================================================== */
+
+.music-button{
+
+    position:fixed;
+
+    right:32px;
+
+    bottom:30px;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(188,163,109,.35);
+
+    background:rgba(15,15,15,.72);
+
+    backdrop-filter:blur(10px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    z-index:999;
+
+}
+
+.music-button:hover{
+
+    transform:scale(1.08);
+
+    border-color:var(--gold);
+
+    box-shadow:0 0 18px rgba(188,163,109,.25);
+
+}
+
+.music-button span{
+
+    color:var(--gold);
+
+    font-size:1.2rem;
+
+}
+
+/* ====================================================== */
+/* LEAF EFFECT */
+/* ====================================================== */
+
+.leaf{
+
+    position:fixed;
+
+    top:-40px;
+
+    width:14px;
+
+    height:14px;
+
+    background:linear-gradient(
+        135deg,
+        #798868,
+        #59644b
+    );
+
+    border-radius:70% 0 70% 0;
+
+    opacity:.65;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:leafFall linear forwards;
+
+}
+
+@keyframes leafFall{
+
+    from{
+
+        transform:
+        translateY(-40px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+
+    }
+
+}
+
+/* ====================================================== */
+/* MODAL */
+/* ====================================================== */
+
+#character-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.72);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9999;
+
+}
+
+#character-modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.modal-window{
+
+    width:min(760px,90%);
+
+    background:#111;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:45px;
+
+    position:relative;
+
+    animation:modalFade .45s ease;
+
+}
+
+@keyframes modalFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+.close-modal{
+
+    position:absolute;
+
+    right:20px;
+
+    top:18px;
+
+    font-size:1.3rem;
+
+    cursor:pointer;
+
+    color:var(--gold);
+
+}
+/* ====================================================== */
+/* FOOTER */
+/* ====================================================== */
+
+footer{
+
+    margin-top:180px;
+
+    padding:80px 20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    color:var(--sub);
+
+    font-size:.9rem;
+
+    letter-spacing:2px;
+
+}
+
+footer h3{
+
+    color:var(--gold);
+
+    font-size:1.2rem;
+
+    font-weight:400;
+
+    margin-bottom:16px;
+
+    letter-spacing:6px;
+
+}
+
+footer p{
+
+    margin:10px 0;
+
+}
+
+/* ====================================================== */
+/* Selection */
+/* ====================================================== */
+
+::selection{
+
+    background:rgba(185,154,97,.35);
+
+    color:#fff;
+
+}
+
+/* ====================================================== */
+/* Fade Scroll */
+/* ====================================================== */
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/* ====================================================== */
+/* Mobile */
+/* ====================================================== */
+
+@media(max-width:900px){
+
+    #navbar{
+
+        gap:28px;
+
+        flex-wrap:wrap;
+
+    }
+
+    .hero-title{
+
+        font-size:64px;
+
+        letter-spacing:8px;
+
+    }
+
+    .hero-chapter{
+
+        font-size:30px;
+
+    }
+
+    .character-layout{
+
+        grid-template-columns:1fr;
+
+        grid-template-areas:
+
+            "sone"
+
+            "sao"
+
+            "soushi"
+
+            "shinon"
+
+            "shizuma";
+
+    }
+
+    .world-block{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .world-block.reverse{
+
+        direction:ltr;
+
+    }
+
+    .calendar td{
+
+        height:60px;
+
+        font-size:.9rem;
+
+    }
+
+    .music-button{
+
+        width:50px;
+
+        height:50px;
+
+        right:18px;
+
+        bottom:18px;
+
+    }
+
+}
+
+/* ====================================================== */
+/* MODAL CONTENT */
+/* ====================================================== */
+
+#modal-content h2{
+
+    color:var(--text);
+
+    font-weight:400;
+
+    letter-spacing:4px;
+
+    margin-bottom:22px;
+
+}
+
+#modal-content p{
+
+    color:var(--sub);
+
+    line-height:2.2;
+
+}
+
+#modal-content strong{
+
+    color:#7d8f69;
+
+    font-weight:500;
+
+}
+
+/* ====================================================== */
+/* End */
+/* ====================================================== */
+
+/* ======================================================
+   YUWON COLOR REMASTER
+====================================================== */
+
+/* ---------------- HERO ---------------- */
+
+.hero-chapter{
+
+    color:var(--olive-light)!important;
+
+}
+
+.hero-line{
+
+    background:linear-gradient(
+
+        transparent,
+        var(--olive),
+        transparent
+
+    )!important;
+
+}
+
+.enter-button{
+
+    color:var(--olive-light)!important;
+
+    border:1px solid rgba(89,100,75,.45)!important;
+
+}
+
+.enter-button:hover{
+
+    background:rgba(89,100,75,.18)!important;
+
+    border-color:var(--olive)!important;
+
+}
+
+/* ---------------- NAV ---------------- */
+
+#navbar .jp{
+
+    color:var(--olive-light)!important;
+
+}
+
+/* ---------------- SECTION ---------------- */
+
+.section-title p{
+
+    color:var(--olive-light)!important;
+
+}
+
+.section-title h2{
+
+    color:var(--text)!important;
+
+}
+
+/* ---------------- CHARACTER ---------------- */
+
+.character-card p{
+
+    color:var(--olive-light)!important;
+
+}
+
+.character-card:hover{
+
+    border-color:var(--olive)!important;
+
+    box-shadow:0 0 35px rgba(89,100,75,.18);
+
+}
+
+/* ---------------- WORLD ---------------- */
+
+.world-text h3{
+
+    color:var(--olive-light)!important;
+
+}
+
+.world-text blockquote{
+
+    color:var(--olive-light)!important;
+
+    border-left:2px solid var(--olive)!important;
+
+}
+
+/* ---------------- CALENDAR ---------------- */
+
+.calendar-header h3{
+
+    color:var(--olive-light)!important;
+
+}
+
+.calendar th{
+
+    color:var(--olive-light)!important;
+
+}
+
+.calendar td:hover{
+
+    background:rgba(89,100,75,.15)!important;
+
+}
+
+.today{
+
+    background:rgba(89,100,75,.18)!important;
+
+    color:var(--text)!important;
+
+}
+
+.has-event{
+
+    color:var(--olive-light)!important;
+
+    font-weight:600;
+
+}
+
+/* ---------------- SCHEDULE ---------------- */
+
+.schedule-info h3{
+
+    color:var(--olive-light)!important;
+
+}
+
+/* ---------------- MODAL ---------------- */
+
+#modal-content h2{
+
+    color:var(--text)!important;
+
+    letter-spacing:3px;
+
+}
+
+#modal-content p{
+
+    color:var(--sub)!important;
+
+    line-height:2.1;
+
+}
+
+#modal-content strong{
+
+    color:var(--olive-light)!important;
+
+}
+
+/* ---------------- SCROLLBAR ---------------- */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0b0b0b;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--olive);
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--olive-light);
+
+}
+/* ======================================================
+   Fog Movement
+====================================================== */
+
+.fog{
+
+    transition:transform 2.8s ease-out;
+
+    will-change:transform;
+
+}
+
+/* ======================================================
+   ATMOSPHERE PACK v1
+   Washi Paper + Olive Mist
+====================================================== */
+
+/* 배경 질감 */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    opacity:.08;
+
+    background:
+
+        radial-gradient(circle at 20% 30%,rgba(255,255,255,.08) 1px,transparent 1.5px),
+
+        radial-gradient(circle at 70% 60%,rgba(255,255,255,.06) 1px,transparent 2px),
+
+        radial-gradient(circle at 45% 80%,rgba(255,255,255,.05) 1px,transparent 2px);
+
+    background-size:
+
+        260px 260px,
+
+        340px 340px,
+
+        420px 420px;
+
+}
+
+/* 올리브 안개빛 */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:-3;
+
+    background:
+
+        radial-gradient(circle at 50% -15%,
+
+        rgba(89,100,75,.20),
+
+        transparent 60%),
+
+        radial-gradient(circle at 0% 100%,
+
+        rgba(116,128,97,.08),
+
+        transparent 55%),
+
+        radial-gradient(circle at 100% 100%,
+
+        rgba(89,100,75,.08),
+
+        transparent 55%);
+
+}
+/* ======================================================
+   FOG LAYERS
+====================================================== */
+
+.fog-layer{
+
+    position:fixed;
+
+    inset:-15%;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    opacity:.22;
+
+    filter:blur(70px);
+
+    animation:fogFloat 60s linear infinite;
+
+}
+
+/* 뒤 안개 */
+
+.fog-back{
+
+    background:
+
+    radial-gradient(circle at 20% 40%,
+
+    rgba(255,255,255,.08),
+
+    transparent 40%),
+
+    radial-gradient(circle at 80% 65%,
+
+    rgba(255,255,255,.06),
+
+    transparent 42%),
+
+    radial-gradient(circle at 55% 15%,
+
+    rgba(255,255,255,.05),
+
+    transparent 35%);
+
+}
+
+/* 앞 안개 */
+
+.fog-front{
+
+    background:
+
+    radial-gradient(circle at 35% 55%,
+
+    rgba(255,255,255,.09),
+
+    transparent 38%),
+
+    radial-gradient(circle at 70% 30%,
+
+    rgba(255,255,255,.07),
+
+    transparent 45%);
+
+    animation-duration:90s;
+
+}
+
+@keyframes fogFloat{
+
+    0%{
+
+        transform:translateX(-4%) translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateX(4%) translateY(-2%);
+
+    }
+
+    100%{
+
+        transform:translateX(-4%) translateY(0);
+
+    }
+
+}
+
+/* ======================================================
+   Event Card
+====================================================== */
+
+.event-card{
+
+    padding:24px;
+
+    border:1px solid rgba(89,100,75,.25);
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.03);
+
+    animation:fadeEvent .35s ease;
+
+}
+
+.event-card h3{
+
+    color:var(--olive-light);
+
+    font-size:1.3rem;
+
+    font-weight:400;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+}
+
+.event-meta{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+    color:var(--sub);
+
+    font-size:.9rem;
+
+    margin-bottom:20px;
+
+}
+
+.event-description{
+
+    color:var(--text);
+
+    line-height:2;
+
+}
+
+.event-empty{
+
+    color:var(--sub);
+
+    opacity:.8;
+
+}
+
+@keyframes fadeEvent{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+.event-empty{
+
+    color:var(--sub);
+
+    text-align:center;
+
+    padding:35px 0;
+
+}
+
+.event-card{
+
+    border-left:2px solid var(--olive);
+
+    padding-left:20px;
+
+    animation:fadeHero .35s;
+
+}
+
+.event-card h4{
+
+    color:var(--olive-light);
+
+    margin-bottom:14px;
+
+    font-size:1.1rem;
+
+}
+
+.event-card p{
+
+    margin:8px 0;
+
+    color:var(--sub);
+
+}
+
+.event-card strong{
+
+    color:var(--text);
+
+}
