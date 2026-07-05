@@ -1447,13 +1447,37 @@ section{
 
 .calendar-header h3{
 
+    flex:1;
+
+    margin:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
     font-weight:400;
 
     color:var(--gold);
 
-    letter-spacing:5px;
+    line-height:1.3;
 
-    font-size:1.4rem;
+}
+
+.calendar-year{
+
+    font-size:.82rem;
+
+    letter-spacing:4px;
+
+    color:var(--olive-light);
+
+    margin-top:6px;
 
 }
 
@@ -2680,30 +2704,63 @@ color:#bdb480;
 
     /* 캐릭터 */
 
-    .character-layout{
+    /* 캐릭터 모바일 */
 
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
-        grid-template-areas:none;
+.character-layout{
 
-        gap:28px;
+    grid-template-columns:repeat(2,1fr);
 
-        justify-items:center;
+    grid-template-areas:none;
 
-    }
+    gap:30px;
 
-    .character-card{
+}
 
-        width:100%;
+.character-card{
 
-    }
+    width:100%;
 
-    .character-image{
+    max-width:170px;
 
-        width:150px;
-        height:150px;
+}
 
-    }
+.sone,
+.sao,
+.soushi,
+.shinon,
+.shizuma{
+
+    grid-area:auto;
+
+}
+
+.character-image{
+
+    width:150px;
+
+    height:150px;
+
+}
+
+   .section-description{
+
+    font-size:.9rem;
+
+}
+
+.world-text{
+
+    font-size:.92rem;
+
+}
+
+.world-text p{
+
+    font-size:.9rem;
+
+    line-height:1.9;
+
+}
 
     .character-card:active{
 
