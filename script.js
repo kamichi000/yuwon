@@ -67,11 +67,51 @@ const modalContent = document.querySelector("#modal-content");
 
 const closeBtn = document.querySelector(".close-modal");
 
-const characterData = {
-  sao: {
-    title: "쇼호인 사오",
-    text: "상징물 : 못\n안개가 늘 함께하는 청년.",
-  },
+const characterData={
+
+sao:{
+
+title:"쇼호인 사오",
+
+jp:"匠鳳院 紗緒",
+
+quote:"안개는 길을 기억한다.",
+
+profile:`
+나이      22세
+신장      175cm
+생일      七月 七日
+
+상징      못
+소속      遊園
+`,
+
+story:`
+안개가 가장 짙게 머무는 새벽이면
+신사 뒤편 연못가를 홀로 걷는다.
+
+그는 말이 적지만
+누군가 길을 잃으면
+가장 먼저 찾아오는 사람이다.
+
+마을 사람들은
+그를 '신의 아이'라 부르기도 한다.
+`,
+
+relation:`
+소네
+현 무녀.
+
+시논
+오랜 친구.
+
+소우시
+비 오는 날이면 자주 마주친다.
+`
+
+},
+
+};
 
   soushi: {
     title: "사야 소우시",
@@ -107,9 +147,50 @@ document.querySelectorAll(".character-card").forEach((card) => {
 
     modal.classList.add("show");
 
-    modalContent.innerHTML = `
+    modalContent.innerHTML=`
+
+<div class="profile-header">
+
 <h2>${data.title}</h2>
-<p>${data.text.replace(/\n/g, "<br>")}</p>
+
+<div class="profile-jp">${data.jp}</div>
+
+</div>
+
+<div class="profile-divider"></div>
+
+<div class="profile-quote">
+
+「 ${data.quote} 」
+
+</div>
+
+<div class="profile-divider"></div>
+
+<div class="profile-section">
+
+<h3>人物</h3>
+
+<p>${data.profile.replace(/\n/g,"<br>")}</p>
+
+</div>
+
+<div class="profile-section">
+
+<h3>記錄</h3>
+
+<p>${data.story.replace(/\n/g,"<br>")}</p>
+
+</div>
+
+<div class="profile-section">
+
+<h3>關係</h3>
+
+<p>${data.relation.replace(/\n/g,"<br>")}</p>
+
+</div>
+
 `;
   });
 });
