@@ -2613,3 +2613,180 @@ margin-top:2px;
 color:#bdb480;
 
 }
+
+/* ======================================================
+   MOBILE REMASTER
+====================================================== */
+
+@media (max-width:768px){
+
+    /* 여백 */
+
+    section{
+
+        width:92%;
+        margin:90px auto;
+
+    }
+
+    /* HERO */
+
+    .hero-title{
+
+        font-size:58px;
+        letter-spacing:6px;
+
+    }
+
+    .hero-chapter{
+
+        font-size:24px;
+
+    }
+
+    .hero-small{
+
+        letter-spacing:6px;
+
+    }
+
+    .hero-text{
+
+        font-size:.9rem;
+        line-height:1.9;
+
+    }
+
+    /* NAV */
+
+    #navbar{
+
+        gap:14px;
+        padding:12px 8px;
+
+    }
+
+    #navbar .en{
+
+        display:none;
+
+    }
+
+    #navbar .jp{
+
+        font-size:.95rem;
+
+    }
+
+    /* 캐릭터 */
+
+    .character-layout{
+
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        grid-template-areas:none;
+
+        gap:28px;
+
+        justify-items:center;
+
+    }
+
+    .character-card{
+
+        width:100%;
+
+    }
+
+    .character-image{
+
+        width:150px;
+        height:150px;
+
+    }
+
+    .character-card:active{
+
+        transform:scale(.97);
+
+    }
+
+    /* 세계관 */
+
+    .world-block{
+
+        grid-template-columns:1fr;
+        gap:30px;
+
+    }
+
+    .world-image{
+
+        min-height:250px;
+
+    }
+
+    /* 달력 */
+
+    .calendar-wrapper{
+
+        padding:18px;
+
+    }
+
+    .calendar th{
+
+        font-size:.75rem;
+
+        padding:8px;
+
+    }
+
+    .calendar td{
+
+        height:46px;
+
+        font-size:.82rem;
+
+    }
+
+    .event-flower{
+
+        font-size:8px;
+
+    }
+
+    /* 일정 */
+
+    .schedule-card{
+
+        padding:24px;
+
+    }
+
+    .schedule-card h3{
+
+        font-size:22px;
+
+    }
+
+    #scheduleDescription{
+
+        font-size:.9rem;
+        line-height:1.8;
+
+    }
+
+    /* 음악 */
+
+    .music-button{
+
+        width:46px;
+        height:46px;
+
+        right:16px;
+        bottom:18px;
+
+    }
+
+}
