@@ -447,11 +447,21 @@
 
         <div class="calendar-header">
 
-            <button class="calendar-btn" id="prevMonth">◀</button>
+            <button id="prevMonth" class="calendar-btn">
+                ❮
+            </button>
 
-            <h3 id="calendarTitle"></h3>
+            <div>
 
-            <button class="calendar-btn" id="nextMonth">▶</button>
+                <h3 id="calendarTitle"></h3>
+
+                <span id="calendarSubTitle"></span>
+
+            </div>
+
+            <button id="nextMonth" class="calendar-btn">
+                ❯
+            </button>
 
         </div>
 
@@ -479,15 +489,27 @@
 
     </div>
 
-    <div class="schedule-info">
+    <div class="schedule-card">
 
-        <h3>祭事</h3>
+        <span class="schedule-jp">
+            祭事
+        </span>
 
-        <div id="scheduleContent" class="event-empty">
+        <h3 id="scheduleTitle">
 
-            날짜를 선택하면 일정이 표시됩니다.
+            날짜를 선택하세요
 
-        </div>
+        </h3>
+
+        <div class="schedule-line"></div>
+
+        <p id="scheduleDescription">
+
+            유원의 기록이 여기에 표시됩니다.
+
+        </p>
+
+        <span id="scheduleDate"></span>
 
     </div>
 
