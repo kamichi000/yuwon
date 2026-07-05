@@ -67,9 +67,11 @@ const modalContent = document.querySelector("#modal-content");
 
 const closeBtn = document.querySelector(".close-modal");
 
-const characterData={
+const characterData = {
 
 sao:{
+
+no:"001",
 
 title:"쇼호인 사오",
 
@@ -77,14 +79,15 @@ jp:"匠鳳院 紗緒",
 
 quote:"안개는 길을 기억한다.",
 
-profile:`
-나이      22세
-신장      175cm
-생일      七月 七日
+age:"22세",
 
-상징      못
-소속      遊園
-`,
+height:"175cm",
+
+birth:"七月 七日",
+
+symbol:"못",
+
+group:"遊園",
 
 story:`
 안개가 가장 짙게 머무는 새벽이면
@@ -100,97 +103,341 @@ story:`
 
 relation:`
 소네
+
 현 무녀.
 
-시논
+────────────
+
+시모가 시논
+
 오랜 친구.
 
-소우시
-비 오는 날이면 자주 마주친다.
+────────────
+
+사야 소우시
+
+비가 오는 날이면 자주 마주친다.
 `
 
 },
 
-  soushi: {
-    title: "사야 소우시",
-    text: "상징물 : 먹\n비가 내리는 날을 사랑한다.",
-  },
+soushi:{
 
-  sone: {
-    title: "소네",
-    text: "상징물 : 방울\n신을 모시는 현 무녀.",
-  },
+no:"002",
 
-  shinon: {
-    title: "시모가 시논",
-    text: "상징물 : 종이학\n말보다 행동이 앞서는 청년.",
-  },
+title:"사야 소우시",
 
-  shizuma: {
-    title: "셋츠 시즈마",
-    text: "상징물 : 시메나와\n바람처럼 흔적을 남기지 않는다.",
-  },
+jp:"紗夜 奏志",
+
+quote:"비는 모든 흔적을 지운다.",
+
+age:"23세",
+
+height:"178cm",
+
+birth:"七月 十三日",
+
+symbol:"먹",
+
+group:"遊園",
+
+story:`
+항상 조용한 표정으로
+붓을 들고 글을 적는다.
+
+마을에서 가장 많은 기록을 남기지만
+정작 자신의 이야기는
+한 줄도 적지 않는다.
+
+비가 오는 날이면
+혼자 신사 처마 밑에 앉아 있는 모습을
+종종 볼 수 있다.
+`,
+
+relation:`
+쇼호인 사오
+
+조용한 벗.
+
+────────────
+
+소네
+
+제례를 함께 준비한다.
+`
+
+},
+
+sone:{
+
+no:"003",
+
+title:"소네",
+
+jp:"苑",
+
+quote:"신께 올리는 기도는 거짓이 없어야 합니다.",
+
+age:"22세",
+
+height:"168cm",
+
+birth:"七月 二十一日",
+
+symbol:"방울",
+
+group:"遊園 神社",
+
+story:`
+유원의 현 무녀.
+
+마을의 제사와 의식을 모두 주관하며
+신의 뜻을 가장 가까이에서 전한다고 여겨진다.
+
+항상 온화하게 웃지만
+안개가 짙어지는 날에는
+그 누구도 그녀에게 말을 걸지 않는다.
+`,
+
+relation:`
+쇼호인 사오
+
+늘 함께 행동한다.
+
+────────────
+
+사야 소우시
+
+제례 준비를 함께한다.
+`
+
+},
+
+  shinon:{
+
+no:"004",
+
+title:"시모가 시논",
+
+jp:"下賀 紫乃",
+
+quote:"종이학은 바람을 기억한다.",
+
+age:"21세",
+
+height:"172cm",
+
+birth:"七月 二十八日",
+
+symbol:"종이학",
+
+group:"遊園",
+
+story:`
+말보다 행동이 앞서는 청년.
+
+언제나 종이학을 접어
+마을 아이들에게 나누어 준다.
+
+겉으로는 무심해 보이지만
+누군가 다치거나 길을 잃으면
+가장 먼저 달려오는 사람이다.
+
+그가 접은 종이학은
+유원의 부적으로 여겨진다.
+`,
+
+relation:`
+쇼호인 사오
+
+오랜 친구.
+
+────────────
+
+소네
+
+종종 신사 일을 도와준다.
+
+────────────
+
+셋츠 시즈마
+
+말은 적지만 서로를 이해한다.
+`
+
+},
+
+shizuma:{
+
+no:"005",
+
+title:"셋츠 시즈마",
+
+jp:"雪津 静真",
+
+quote:"바람은 흔적을 남기지 않는다.",
+
+age:"24세",
+
+height:"181cm",
+
+birth:"七月 三十日",
+
+symbol:"시메나와",
+
+group:"遊園",
+
+story:`
+마을에서도 가장 조용한 남자.
+
+늘 사람들보다 한 걸음 뒤에 서 있으며
+필요할 때만 모습을 드러낸다.
+
+그가 언제 잠드는지,
+언제 일어나는지
+아는 사람은 아무도 없다.
+
+안개가 가장 짙은 밤,
+홀로 신사 숲으로 향하는 모습을
+봤다는 이야기만 전해질 뿐이다.
+`,
+
+relation:`
+시모가 시논
+
+말없이 함께 있는 시간이 많다.
+
+────────────
+
+소네
+
+신사를 지키는 일을 돕는다.
+`
+
+}
+
 };
 /* =======================================================
    Character Modal
 ======================================================= */
 
-document.querySelectorAll(".character-card").forEach((card) => {
-  card.addEventListener("click", () => {
-    const id = card.dataset.character;
+document.querySelectorAll(".character-card").forEach((card)=>{
 
-    const data = characterData[id];
+    card.addEventListener("click",()=>{
 
-    if (!data) return;
+        const id=card.dataset.character;
 
-    modal.classList.add("show");
+        const data=characterData[id];
 
-    modalContent.innerHTML=`
+        if(!data) return;
 
-<div class="profile-header">
+        modal.classList.add("show");
 
-<h2>${data.title}</h2>
+        modalContent.innerHTML=`
 
-<div class="profile-jp">${data.jp}</div>
+<div class="archive-top">
+
+<div class="archive-logo">
+
+遊園
 
 </div>
 
-<div class="profile-divider"></div>
+<div class="archive-title">
 
-<div class="profile-quote">
+人物錄
+
+</div>
+
+<div class="archive-number">
+
+No.${data.no}
+
+</div>
+
+<div class="archive-name">
+
+${data.title}
+
+</div>
+
+<div class="archive-jp">
+
+${data.jp}
+
+</div>
+
+</div>
+
+<div class="archive-divider"></div>
+
+<div class="archive-quote">
 
 「 ${data.quote} 」
 
 </div>
 
-<div class="profile-divider"></div>
+<div class="archive-grid">
 
-<div class="profile-section">
+<div class="archive-side">
+
+<div class="archive-card">
 
 <h3>人物</h3>
 
-<p>${data.profile.replace(/\n/g,"<br>")}</p>
+<div class="profile-table">
+
+<div class="profile-label">나이</div>
+<div class="profile-value">${data.age}</div>
+
+<div class="profile-label">신장</div>
+<div class="profile-value">${data.height}</div>
+
+<div class="profile-label">생일</div>
+<div class="profile-value">${data.birth}</div>
+
+<div class="profile-label">상징</div>
+<div class="profile-value">${data.symbol}</div>
+
+<div class="profile-label">소속</div>
+<div class="profile-value">${data.group}</div>
 
 </div>
 
-<div class="profile-section">
-
-<h3>記錄</h3>
-
-<p>${data.story.replace(/\n/g,"<br>")}</p>
-
 </div>
 
-<div class="profile-section">
+<div class="archive-card">
 
 <h3>關係</h3>
 
-<p>${data.relation.replace(/\n/g,"<br>")}</p>
+<div class="archive-relations">
+
+${data.relation.replace(/\n/g,"<br>")}
+
+</div>
+
+</div>
+
+</div>
+
+<div class="archive-story">
+
+<h3>記錄</h3>
+
+<p>
+
+${data.story.replace(/\n/g,"<br>")}
+
+</p>
+
+</div>
 
 </div>
 
 `;
-  });
+
+    });
+
 });
 
 /* 닫기 버튼 */
