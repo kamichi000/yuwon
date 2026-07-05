@@ -2732,11 +2732,53 @@ color:#bdb480;
 
 .character-layout{
 
+    display:grid;
+
     grid-template-columns:repeat(2,1fr);
 
-    grid-template-areas:none;
+    grid-template-areas:
 
-    gap:30px;
+        "sone sone"
+
+        "sao soushi"
+
+        "shinon shizuma";
+
+    gap:35px;
+
+    justify-items:center;
+
+    align-items:start;
+
+}
+
+.sone{
+
+    grid-area:sone;
+
+}
+
+.sao{
+
+    grid-area:sao;
+
+}
+
+.soushi{
+
+    grid-area:soushi;
+
+}
+
+.shinon{
+
+    grid-area:shinon;
+
+}
+
+.shizuma{
+
+    grid-area:shizuma;
 
 }
 
@@ -2748,21 +2790,39 @@ color:#bdb480;
 
 }
 
-.sone,
-.sao,
-.soushi,
-.shinon,
-.shizuma{
-
-    grid-area:auto;
-
-}
-
 .character-image{
 
     width:150px;
 
     height:150px;
+
+}
+
+.character-card h3{
+
+    font-size:1rem;
+
+}
+
+.character-card p{
+
+    font-size:.72rem;
+
+    letter-spacing:3px;
+
+}
+
+.character-card h3{
+
+    font-size:1rem;
+
+}
+
+.character-card p{
+
+    font-size:.72rem;
+
+    letter-spacing:3px;
 
 }
 
@@ -2775,6 +2835,8 @@ color:#bdb480;
 .world-text{
 
     font-size:.92rem;
+
+    line-height:2;
 
 }
 
