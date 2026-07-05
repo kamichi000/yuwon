@@ -139,116 +139,156 @@ document.addEventListener("keydown", (e) => {
    Calendar
 ======================================================= */
 
-const calendarTitle = document.getElementById("calendarTitle");
-const calendarBody = document.getElementById("calendarBody");
-const scheduleContent = document.getElementById("scheduleContent");
+const jpMonths=[
+"一月","二月","三月","四月",
+"五月","六月","七月","八月",
+"九月","十月","十一月","十二月"
+];
 
-let currentDate = new Date(2001, 6, 1);
+const schedules={
 
-/* 일정 */
+"2001-7-7":{
+title:"칠석 제례",
+desc:"신사에서 칠석 제례를 준비합니다.",
+icon:"🌫"
+},
 
-const schedules = {
+"2001-7-13":{
+title:"무녀 의식",
+desc:"현 무녀가 신에게 기도를 올립니다.",
+icon:"🎐"
+},
 
-    "2001-7-7":{
-        title:"🌫 칠석 제례 준비",
-        desc:"제사를 준비하기 위해 마을 전체가 정화 의식을 진행합니다."
-    },
+"2001-7-21":{
+title:"신사 청소",
+desc:"마을 주민들이 모두 신사를 정비합니다.",
+icon:"⛩"
+},
 
-    "2001-7-13":{
-        title:"🎐 무녀 의식",
-        desc:"신사에서 무녀의 봉납 의식이 거행됩니다."
-    },
-
-    "2001-7-21":{
-        title:"⛩ 신사 청소",
-        desc:"주민들이 모두 모여 신사를 정비합니다."
-    },
-
-    "2001-7-28":{
-        title:"🌧 안개 관측",
-        desc:"짙은 안개가 예상되어 외출을 삼가야 합니다."
-    }
+"2001-7-28":{
+title:"안개 관측",
+desc:"짙은 안개의 흐름을 기록합니다.",
+icon:"🌧"
+}
 
 };
 
+let currentDate=new Date(2001,6,1);
+
 function renderCalendar(){
 
-    calendarBody.innerHTML="";
+const body=document.getElementById("calendarBody");
 
-    const year=currentDate.getFullYear();
-    const month=currentDate.getMonth();
+body.innerHTML="";
 
-    calendarTitle.textContent=`${year}年 ${month+1}月`;
+const year=currentDate.getFullYear();
 
-    const firstDay=new Date(year,month,1).getDay();
-    const lastDate=new Date(year,month+1,0).getDate();
+const month=currentDate.getMonth();
 
-    let row=document.createElement("tr");
+document.getElementById("calendarTitle").textContent=
+jpMonths[month];
 
-    for(let i=0;i<firstDay;i++){
+document.getElementById("calendarSubTitle").textContent=
+year;
 
-        row.appendChild(document.createElement("td"));
+const first=new Date(year,month,1).getDay();
 
-    }
+const last=new Date(year,month+1,0).getDate();
 
-    for(let day=1;day<=lastDate;day++){
+let row=document.createElement("tr");
 
-        const td=document.createElement("td");
+for(let i=0;i<first;i++){
 
-        td.textContent=day;
+row.appendChild(document.createElement("td"));
 
-        const key=`${year}-${month+1}-${day}`;
+}
 
-        if(schedules[key]){
+for(let day=1;day<=last;day++){
 
-            td.classList.add("has-event");
+const td=document.createElement("td");
 
-        }
+const key=`${year}-${month+1}-${day}`;
 
-        td.addEventListener("click",()=>{
+td.innerHTML=day;
 
-            const event=schedules[key];
+if(schedules[key]){
 
-            if(event){
+td.classList.add("event-day");
 
-                scheduleContent.innerHTML=`
-                    <h4>${event.title}</h4>
-                    <p>${event.desc}</p>
-                `;
+td.innerHTML=`
+${day}
+<span class="event-flower">❀</span>
+`;
 
-            }else{
+}
 
-                scheduleContent.innerHTML=`
-                    <h4>일정 없음</h4>
-                    <p>등록된 일정이 없습니다.</p>
-                `;
+td.onclick=()=>{
 
-            }
+const data=schedules[key];
 
-        });
+if(!data){
 
-        row.appendChild(td);
+document.getElementById("scheduleTitle").textContent="등록된 일정 없음";
 
-        if((firstDay+day)%7===0){
+document.getElementById("scheduleDescription").textContent=
+"이 날에는 기록이 남아있지 않습니다.";
 
-            calendarBody.appendChild(row);
-            row=document.createElement("tr");
+document.getElementById("scheduleDate").textContent="";
 
-        }
+return;
 
-    }
+}
 
-    while(row.children.length<7){
+document.getElementById("scheduleTitle").textContent=
+`${data.icon} ${data.title}`;
 
-        row.appendChild(document.createElement("td"));
+document.getElementById("scheduleDescription").textContent=
+data.desc;
 
-    }
+document.getElementById("scheduleDate").textContent=
+`${year}年 ${month+1}月 ${day}日`;
 
-    calendarBody.appendChild(row);
+};
+
+row.appendChild(td);
+
+if((first+day)%7===0){
+
+body.appendChild(row);
+
+row=document.createElement("tr");
+
+}
+
+}
+
+while(row.children.length<7){
+
+row.appendChild(document.createElement("td"));
+
+}
+
+body.appendChild(row);
 
 }
 
 renderCalendar();
+
+prevMonth.onclick=()=>{
+
+currentDate.setMonth(currentDate.getMonth()-1);
+
+renderCalendar();
+
+};
+
+nextMonth.onclick=()=>{
+
+currentDate.setMonth(currentDate.getMonth()+1);
+
+renderCalendar();
+
+};
 /* =======================================================
    Calendar Button
 ======================================================= */
