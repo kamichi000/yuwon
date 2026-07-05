@@ -1,1 +1,585 @@
+<!DOCTYPE html>
+<html lang="ko">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>遊園 | Chapter I : 桃源鄕</title>
+
+    <meta name="description"
+        content="일본 북부 산맥 어딘가. 안개에 가려진 폐쇄된 마을, 유원(遊園). 당신은 길을 잃었습니다.">
+    <meta name="theme-color" content="#0d0d0d">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- FOG LAYER -->
+    <!-- ===================================================== -->
+
+    <div class="fog fog1"></div>
+    <div class="fog fog2"></div>
+
+    <!-- ===================================================== -->
+    <!-- LEAF EFFECT -->
+    <!-- ===================================================== -->
+
+    <div id="leaf-container"></div>
+
+    <!-- ===================================================== -->
+    <!-- HERO -->
+    <!-- ===================================================== -->
+
+    <header id="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                YUUEN
+            </p>
+
+            <h1 class="hero-title">
+                遊園
+            </h1>
+
+            <p class="hero-sub">
+                Chapter I
+            </p>
+
+            <h2 class="hero-chapter">
+                桃源鄕
+            </h2>
+
+            <div class="hero-line"></div>
+
+            <p class="hero-text">
+
+                환영합니다, 외부인.<br>
+                부디 돌아가는 길을 잊지 마십시오.
+
+            </p>
+
+            <a href="#characters" class="enter-button">
+                ENTER
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- NAVIGATION -->
+    <!-- ===================================================== -->
+
+    <nav id="navbar">
+
+        <a href="#characters">
+
+            <span class="jp">
+                人物
+            </span>
+
+            <span class="en">
+                Characters
+            </span>
+
+        </a>
+
+        <a href="#world">
+
+            <span class="jp">
+                世界
+            </span>
+
+            <span class="en">
+                World
+            </span>
+
+        </a>
+
+        <a href="#events">
+
+            <span class="jp">
+                祭事
+            </span>
+
+            <span class="en">
+                Events
+            </span>
+
+        </a>
+
+        <a href="#archive">
+
+            <span class="jp">
+                訪問記録
+            </span>
+
+            <span class="en">
+                Archive
+            </span>
+
+        </a>
+
+    </nav>
+    <!-- ===================================================== -->
+    <!-- CHARACTERS -->
+    <!-- ===================================================== -->
+
+    <main>
+
+        <section id="characters">
+
+            <div class="section-title">
+
+                <p>人物</p>
+
+                <h2>Characters</h2>
+
+            </div>
+
+            <p class="section-description">
+
+                유원에서 살아가는 다섯 사람.
+                <br>
+                그들은 당신을 반갑게 맞이하지만,
+                그 미소의 의미를 당신은 아직 모른다.
+
+            </p>
+
+            <div class="character-layout">
+
+                <!-- 소네 -->
+
+                <div class="character-card sone" data-character="sone">
+
+    <div class="character-image">
+
+        <img src="assets/sone.png" alt="소네">
+
+        <div class="effect">
+
+            <span class="shide shide1"></span>
+
+            <span class="shide shide2"></span>
+
+            <span class="shide shide3"></span>
+
+        </div>
+
+    </div>
+
+    <h3>소네</h3>
+
+    <p>其の巫女</p>
+
+</div>
+
+                <!-- 사오 -->
+
+                <div class="character-card sao" data-character="sao">
+
+                    <div class="character-image">
+
+                        <img src="assets/sao.png" alt="쇼호인 사오">
+
+                        <div class="effect fog"></div>
+
+                    </div>
+
+                    <h3>쇼호인 사오</h3>
+
+                    <p>霧</p>
+
+                </div>
+
+
+                <!-- 소우시 -->
+
+                <div class="character-card soushi" data-character="soushi">
+
+                    <div class="character-image">
+
+                        <img src="assets/soushi.png" alt="사야 소우시">
+
+                        <div class="effect rain"></div>
+
+                    </div>
+
+                    <h3>사야 소우시</h3>
+
+                    <p>雨</p>
+
+                </div>
+
+
+                <!-- 시논 -->
+
+                <div class="character-card shinon" data-character="shinon">
+
+                    <div class="character-image">
+
+                        <img src="assets/shinon.png" alt="시모가 시논">
+
+                        <div class="effect crane"></div>
+
+                    </div>
+
+                    <h3>시모가 시논</h3>
+
+                    <p>折鶴</p>
+
+                </div>
+
+
+                <!-- 시즈마 -->
+
+                <div class="character-card shizuma" data-character="shizuma">
+
+                    <div class="character-image">
+
+                        <img src="assets/shizuma.png" alt="셋츠 시즈마">
+
+                        <div class="effect wind"></div>
+
+                    </div>
+
+                    <h3>셋츠 시즈마</h3>
+
+                    <p>注連縄</p>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ===================================================== -->
+        <!-- WORLD -->
+        <!-- ===================================================== -->
+
+        <section id="world">
+
+            <div class="section-title">
+
+                <p>世界</p>
+
+                <h2>World</h2>
+
+            </div>
+
+            <div class="world-container">
+
+                <article class="world-block">
+
+                    <div class="world-image">
+
+                        <img src="assets/background/world01.jpg" alt="유원 마을">
+
+                    </div>
+
+                    <div class="world-text">
+
+                        <h3>遊園</h3>
+
+                        <p>
+
+                            일본 북부 산맥 깊숙한 곳.
+
+                            지도에도 남아 있지 않은 작은 마을.
+
+                            사람들은 이곳을
+
+                            <strong>「유원(遊園)」</strong>
+
+                            이라 부른다.
+
+                        </p>
+
+                        <p>
+
+                            시대는 분명 2000년대.
+
+                            그러나 마을에는 전봇대도,
+
+                            휴대전화도,
+
+                            인터넷도,
+
+                            전자기기조차 존재하지 않는다.
+
+                        </p>
+
+                        <p>
+
+                            주민들은 몇 세기 전과 다르지 않은 생활을 이어가며,
+
+                            외부와의 접촉 없이 살아간다.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="world-block reverse">
+
+                    <div class="world-image">
+
+                        <img src="assets/background/world02.jpg" alt="안개">
+
+                    </div>
+
+                    <div class="world-text">
+
+                        <h3>霧</h3>
+
+                        <p>
+
+                            마을에는 언제나 안개가 드리운다.
+
+                        </p>
+
+                        <p>
+
+                            때로는 앞이 보이지 않을 정도로 짙어지고,
+
+                            그날만큼은 누구도 밖으로 나가지 않는다.
+
+                        </p>
+
+                        <p>
+
+                            이유는 하나.
+
+                        </p>
+
+                        <blockquote>
+
+                            「카미카쿠시를 당한다.」
+
+                        </blockquote>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="world-block">
+
+                    <div class="world-image">
+
+                        <img src="assets/background/world03.jpg" alt="신사">
+
+                    </div>
+
+                    <div class="world-text">
+
+                        <h3>神</h3>
+
+                        <p>
+
+                            마을은 오직 하나의 신을 섬긴다.
+
+                        </p>
+
+                        <p>
+
+                            하지만 누구도
+
+                            그 이름을 모른다.
+
+                        </p>
+
+                        <p>
+
+                            아니,
+
+                            이름을 묻는 것 자체가
+
+                            금기이다.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+              <!-- ===================================================== -->
+        <!-- EVENT SCHEDULE -->
+        <!-- ===================================================== -->
+
+<section id="events">
+
+    <div class="section-title">
+
+        <p>祭事</p>
+
+        <h2>祭事日程</h2>
+
+    </div>
+
+    <p class="section-description">
+
+        유원의 제사와 행사 기록입니다.
+
+    </p>
+
+    <div class="calendar-wrapper">
+
+        <div class="calendar-header">
+
+            <button class="calendar-btn" id="prevMonth">◀</button>
+
+            <h3 id="calendarTitle"></h3>
+
+            <button class="calendar-btn" id="nextMonth">▶</button>
+
+        </div>
+
+        <table class="calendar">
+
+            <thead>
+
+                <tr>
+
+                    <th>日</th>
+                    <th>月</th>
+                    <th>火</th>
+                    <th>水</th>
+                    <th>木</th>
+                    <th>金</th>
+                    <th>土</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="calendarBody"></tbody>
+
+        </table>
+
+    </div>
+
+    <div class="schedule-info">
+
+        <h3>祭事</h3>
+
+        <div id="scheduleContent" class="event-empty">
+
+            날짜를 선택하면 일정이 표시됩니다.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- ARCHIVE -->
+        <!-- ===================================================== -->
+
+        <section id="archive">
+
+            <div class="archive-overlay"></div>
+
+            <div class="archive-content">
+
+                <p class="archive-small">
+
+                    訪問記録
+
+                </p>
+
+                <h2>
+
+                    당신은,
+                    <br>
+                    무사히 돌아가셨습니까.
+
+                </h2>
+
+                <div class="archive-line"></div>
+
+                <p>
+
+                    유원을 방문한 사람들의 기록은
+                    남아 있지 않습니다.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ===================================================== -->
+    <!-- MUSIC BUTTON -->
+    <!-- ===================================================== -->
+
+    <button id="music-button" aria-label="BGM">
+
+        ♪
+
+    </button>
+
+
+
+    <!-- ===================================================== -->
+<!-- CHARACTER MODAL -->
+<!-- ===================================================== -->
+
+<div id="character-modal">
+
+    <div class="modal-background"></div>
+
+    <div class="modal-window">
+
+        <button class="close-modal">
+
+            ×
+
+        </button>
+
+        <div id="modal-content">
+
+            <!-- JavaScript -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<audio id="bgm" loop>
+
+    <source src="assets/music/bgm.mp3" type="audio/mpeg">
+
+</audio>
+
+</body>
+
+</html>
