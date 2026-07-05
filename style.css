@@ -589,7 +589,7 @@ section{
 
 .character-card{
 
-    width:240px;
+    width:260px;
 
     position:relative;
 
@@ -617,9 +617,9 @@ section{
 
     position:relative;
 
-    width:220px;
+    width:240px;
 
-    height:220px;
+    height:240px;
 
     overflow:hidden;
 
@@ -1419,7 +1419,7 @@ section{
 
     margin:70px auto 50px;
 
-    max-width:950px;
+    max-width:1050px;
 
     padding:35px;
 
