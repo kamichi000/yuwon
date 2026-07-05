@@ -175,6 +175,9 @@ icon:"🌧"
 
 let currentDate=new Date(2001,6,1);
 
+const prevMonth = document.getElementById("prevMonth");
+const nextMonth = document.getElementById("nextMonth");
+
 function renderCalendar(){
 
 const body=document.getElementById("calendarBody");
@@ -289,25 +292,6 @@ currentDate.setMonth(currentDate.getMonth()+1);
 renderCalendar();
 
 };
-/* =======================================================
-   Calendar Button
-======================================================= */
-
-const prevMonth = document.getElementById("prevMonth");
-
-const nextMonth = document.getElementById("nextMonth");
-
-prevMonth.addEventListener("click", () => {
-  currentDate.setMonth(currentDate.getMonth() - 1);
-
-  renderCalendar();
-});
-
-nextMonth.addEventListener("click", () => {
-  currentDate.setMonth(currentDate.getMonth() + 1);
-
-  renderCalendar();
-});
 /* =======================================================
    Music
 ======================================================= */
